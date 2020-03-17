@@ -4,20 +4,18 @@ metadata:
   name: keycloak-nlb
   annotations:
     service.beta.kubernetes.io/aws-load-balancer-internal: true
-    service.beta.kubernetes.io/aws-load-balancer-internal: "0.0.0.0/0"
-    service.beta.kubernetes.io/aws-load-balancer-type: "nlb"
 spec:
   type: LoadBalancer
   selector:
-    app: keycloak
+    workloadID_keycloak: "true"
   ports:
   - port: 80
     targetPort: 80
     nodePort: 31001
     name: http
     protocol: TCP
-  - port: 443
-    targetPort: 443
+  - port: 8443
+    targetPort: 8443
     nodePort: 31002
     name: https
     protocol: TCP

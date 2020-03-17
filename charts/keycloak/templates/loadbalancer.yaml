@@ -13,9 +13,11 @@ spec:
   ports:
   - port: 80
     targetPort: 30001
+    name: http
     protocol: TCP
   - port: 443
     targetPort: 30002
+    name: https
     protocol: TCP
   externalTrafficPolicy: Cluster
 

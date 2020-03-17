@@ -1,0 +1,21 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: keycloak-nlb
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-internal: true
+    service.beta.kubernetes.io/aws-load-balancer-internal: "0.0.0.0/0"
+    service.beta.kubernetes.io/aws-load-balancer-type: "nlb"
+spec:
+  type: LoadBalancer
+  selector:
+    app: keycloak
+  ports:
+  - port: 80
+    targetPort: 30001
+    protocol: TCP
+  - port: 443
+    targetPort: 30002
+    protocol: TCP
+  externalTrafficPolicy: Cluster
+

@@ -15,9 +15,11 @@ spec:
     targetPort: 30001
     name: http
     protocol: TCP
+    type: NodePort
   - port: 443
     targetPort: 30002
     name: https
     protocol: TCP
+    type: NodePort
   externalTrafficPolicy: Cluster
 

@@ -221,16 +221,16 @@ keycloak:
 
     ## ServiceType
     ## ref: https://kubernetes.io/docs/user-guide/services/#publishing-services---service-types
-    type: NodePort
+    type: LoadBalancer
 
     ## Optional static port assignment for service type NodePort.
     # nodePort: 30000
 
     httpPort: 80
-    httpNodePort: "30002"
+    httpNodePort: "30001"
 
     httpsPort: 8443
-    httpsNodePort: "30001"
+    httpsNodePort: "30002"
 
     # Optional: jGroups port for high availability clustering
     jgroupsPort: 7600
